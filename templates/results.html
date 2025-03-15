@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Processing Results</h1>
+    {% for result in results %}
+        <h2>Table {{ result.table_number }}</h2>
+        <div>{{ result.dataframe | safe }}</div>
+        <p>Highest Payment: {{ result.highest_payment }}</p>
+        <p>Lowest Payment: {{ result.lowest_payment }}</p>
+    {% endfor %}
+    <a href="/">Upload another file</a>
+</body>
+</html>

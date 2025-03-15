@@ -7,7 +7,7 @@ def read_tables_from_sheet(sheet):
     row_count = 0  # Counter to track the number of rows processed
     for row in sheet.iter_rows(values_only=True):
         row_count += 1
-        print(f"Processing row {row_count}: {row}")  # Debugging statement
+        #print(f"Processing row {row_count}: {row}")  # Debugging statement
         # Check if the row contains any non-None values
         if any(cell is not None for cell in row):
             current_table.append(row)
@@ -17,7 +17,7 @@ def read_tables_from_sheet(sheet):
                 current_table = []
     if current_table:
         tables.append(current_table)
-    print(f"Total rows processed: {row_count}")  # Debugging statement
+    #print(f"Total rows processed: {row_count}")  # Debugging statement
     return tables
 
 def remove_none_values(table):
@@ -40,7 +40,7 @@ def Highest_Payment(table):
         print("No payment column found.")
         return
     # Print payment column index for debugging
-    print(f"Payment column index: {payment_col_index}")
+    #print(f"Payment column index: {payment_col_index}")
     
     # Verify that the payment column index is valid
     if payment_col_index >= len(table[0]):
@@ -74,7 +74,7 @@ def Lowest_Payment(table):
         print("No payment column found.")
         return
     # Print payment column index for debugging
-    print(f"Payment column index: {payment_col_index}")
+    #print(f"Payment column index: {payment_col_index}")
     
     # Verify that the payment column index is valid
     if payment_col_index >= len(table[0]):
