@@ -21,8 +21,9 @@ def read_tables_from_sheet(sheet):
     return tables
 
 def remove_none_values(table):
-    # Replace None values with empty strings to avoid removing entire rows
-    return [[cell if cell is not None else '' for cell in row] for row in table]
+    # Remove cells that are None 
+    # and remove rows that are completely empty
+    return [[cell for cell in row if cell is not None] for row in table if any(cell is not None for cell in row)] if table else table
 
 def remove_total_row(table):
     # Remove the last row if it contains the word "Total" in any cell, skipping the first row
@@ -61,8 +62,11 @@ def Highest_Payment(table):
         print(f"Highest payment value: {highest_payment[1]}")
     else:
         print("No valid payment values found.")
+    #return value of highest payment
+    return highest_payment[1] if payment_values else None
 
 def Lowest_Payment(table):
+    
     # Find column that contains the word "Payment" or "Monthly"
     payment_col_index = None
     for i, header in enumerate(table[0]):
@@ -72,7 +76,7 @@ def Lowest_Payment(table):
             break
     if payment_col_index is None:
         print("No payment column found.")
-        return
+        return 
     # Print payment column index for debugging
     #print(f"Payment column index: {payment_col_index}")
     
@@ -95,3 +99,6 @@ def Lowest_Payment(table):
         print(f"Lowest payment value: {lowest_payment[1]}")
     else:
         print("No valid payment values found.")
+   
+    #return value of lowest payment
+    return lowest_payment[1] if payment_values else None
