@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload File</title>
+    <title>Input Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Upload an Excel File</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="Upload">
-    </form>
-</body>
-</html>
+    <div class="container">
+        <h1>Finance Analyst</h1>
+        <h2>Input information of monthly payments</h2>
+        <form action="/submit_data" method="post" class="form-container">
+            <table>
+                <tr>
+                    <th>Payment Names</th>
+                    <th>Initial Amoun

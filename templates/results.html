@@ -13,12 +13,6 @@
         <p>Highest Payment: {{ result.highest_payment }}</p>
         <p>Lowest Payment: {{ result.lowest_payment }}</p>
     {% endfor %}
-    {% if pie_chart %}
-        <h2>Pie Chart</h2>
-        <img src="{{ url_for('static', filename=pie_chart) }}" alt="Pie Chart">
-    {% endif %}
-    <a href="{{ url_for('download_file', filename=processed_file) }}">Download Processed File</a>
-    <br>
     <a href="/">Upload another file</a>
 </body>
 </html>
